@@ -1,7 +1,7 @@
 {
-    "version": "1.0.1",
-    "version_num": 10001,
-    "version_desc": "- Android 6.0 支持\n- 添加房间特定音量管理\n- 改进HTTP响应处理",
-    "prerelease": true,
+    "version": "10.0.0",
+    "version_num": 100000,
+    "version_desc": "- Android 6.0 (API 23) 完整适配\n- 优化运行时权限处理\n- 改进内存管理",
+    "prerelease": false,
     "download_url": "https://github.com/xiaoyaocz/dart_simple_live/releases"
 }
