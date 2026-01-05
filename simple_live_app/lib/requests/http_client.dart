@@ -150,7 +150,12 @@ class HttpClient {
         ),
         cancelToken: cancel,
       );
-      return result.data;
+      var responseData = result.data;
+      // Handle empty response body
+      if (responseData == null || (responseData is String && responseData.isEmpty)) {
+        return {};
+      }
+      return responseData;
     } catch (e) {
       if (e is DioException && e.type == DioExceptionType.badResponse) {
         throw HttpError(e.message ?? "",

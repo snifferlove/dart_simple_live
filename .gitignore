@@ -3,3 +3,11 @@ simple_live_tv_app/.vscode/settings.json
 
 # macOS Spotlight Search index file
 *.DS_Store
+
+# Android keystore files
+*.jks
+*.keystore
+
+# IDE
+.vscode/
+.idea/

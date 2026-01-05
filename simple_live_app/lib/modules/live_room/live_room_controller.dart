@@ -331,6 +331,12 @@ class LiveRoomController extends PlayerController with WidgetsBindingObserver {
       initDanmau();
       liveDanmaku.start(detail.value?.danmakuData);
       startLiveDurationTimer(); // 启动开播时长定时器
+      // Load room-specific volume if available
+      double? roomVolume = DBService.instance.getVolume("${site.id}_$roomId");
+      if (roomVolume != null && roomVolume > 0) {
+        player.setVolume(roomVolume);
+        AppSettingsController.instance.setPlayerVolume(roomVolume);
+      }
     } catch (e) {
       Log.logPrint(e);
       //SmartDialog.showToast(e.toString());
@@ -643,6 +649,8 @@ class LiveRoomController extends PlayerController with WidgetsBindingObserver {
                 onChanged: (newValue) {
                   player.setVolume(newValue);
                   AppSettingsController.instance.setPlayerVolume(newValue);
+                  // Save room-specific volume
+                  DBService.instance.addOrUpdateVolume("${site.id}_$roomId", newValue.toDouble());
                 },
               ),
             ),
