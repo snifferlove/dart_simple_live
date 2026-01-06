@@ -1,7 +1,7 @@
 {
-    "version": "10.0.0",
-    "version_num": 100000,
-    "version_desc": "- Android 6.0 (API 23) 完整适配\n- 优化运行时权限处理\n- 改进内存管理",
+    "version": "10.0.1",
+    "version_num": 100001,
+    "version_desc": "- Mali-450MP GPU 专项优化\n- Amlogic T962 硬件解码适配\n- 播放器缓冲策略优化\n- 内存管理和掉帧处理改进\n- 网络自适应码率调整",
     "prerelease": false,
     "download_url": "https://github.com/xiaoyaocz/dart_simple_live/releases"
 }

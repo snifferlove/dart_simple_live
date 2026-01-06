@@ -35,9 +35,21 @@ import 'package:window_manager/window_manager.dart';
 
 import 'package:path/path.dart' as p;
 import 'package:dynamic_color/dynamic_color.dart';
+import 'src/core/amlogic_t962_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // 初始化 T962 解码器
+  await AmlogicT962Config.initializeDecoder();
+  
+  // 获取设备信息
+  final deviceInfo = await AmlogicT962Config.getDeviceInfo();
+  print('📺 设备信息: $deviceInfo');
+  
+  // 应用内存优化
+  await AmlogicT962Config.optimizeMemoryForT962();
+  
   await migrateData();
   await initWindow();
   MediaKit.ensureInitialized();

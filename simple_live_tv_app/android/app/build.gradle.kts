@@ -33,7 +33,11 @@ android {
         applicationId = "com.xycz.simple_live_tv"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
+<<<<<<< HEAD
+        minSdk = 23  // Android 6.0
+=======
         minSdk = 23  // Android 6.0 (API 23) support
+>>>>>>> a1fed34 (chore: remove phone app workflows, only keep TV app builds)
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

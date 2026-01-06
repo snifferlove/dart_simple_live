@@ -22,6 +22,9 @@ import 'package:simple_live_tv_app/services/db_service.dart';
 import 'package:simple_live_tv_app/services/follow_user_service.dart';
 import 'package:simple_live_tv_app/services/local_storage_service.dart';
 import 'package:simple_live_tv_app/services/sync_service.dart';
+import 'src/core/amlogic_t962_config.dart';
+import 'src/core/memory_manager.dart';
+import 'src/core/player_optimizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,6 +39,22 @@ void main() async {
   ]);
   // 全屏
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+
+  // 初始化 T962 解码器
+  await AmlogicT962Config.initializeDecoder();
+  final deviceInfo = await AmlogicT962Config.getDeviceInfo();
+  print('📺 设备信息: $deviceInfo');
+
+  // 初始化内存管理
+  MemoryManager.initialize();
+
+  // 初始化播放器优化
+  final playerConfig = PlayerOptimizer.getMali450OptimizedConfig();
+  PlayerOptimizer.printConfig(playerConfig);
+
+  // 应用内存优化
+  await AmlogicT962Config.optimizeMemoryForT962();
+
   runApp(const MyApp());
 }
 

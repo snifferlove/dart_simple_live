@@ -1,7 +1,8 @@
 name: simple_live_app
-version: 10.0.0+100000
-publish_to: none
-description: "Simple Live APP"
+description: A new Flutter project.
+publish_to: "none"
+version: 10.0.1+100001
+
 environment:
   sdk: ">=3.0.5 <4.0.0"
 
